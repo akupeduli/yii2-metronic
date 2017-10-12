@@ -2,16 +2,15 @@
 /** @var \yii\web\View $this */
 use yii\helpers\Html;
 use akupeduli\metronic\Metronic;
+use akupeduli\metronic\widgets\NavBar;
 use akupeduli\metronic\assets\core\ModeAsset;
-use akupeduli\metronic\assets\core\GlobalMediaAsset;
 $this->beginContent(__DIR__ . '/base.php');
 /** @var Metronic $metronic */
 $metronic = Metronic::getComponent();
 $media = ModeAsset::register($this);
-$globalMedia = GlobalMediaAsset::register($this);
 ?>
 <!-- BEGIN: Header -->
-<header class="m-grid__item    m-header "  data-minimize-offset="200" data-minimize-mobile-offset="200" >
+<header class="m-grid__item m-header "  data-minimize-offset="200" data-minimize-mobile-offset="200" >
     <div class="m-container m-container--fluid m-container--full-height">
         <div class="m-stack m-stack--ver m-stack--desktop">
             <!-- BEGIN: Brand -->
@@ -36,100 +35,26 @@ $globalMedia = GlobalMediaAsset::register($this);
                         </a>
                         <!-- END -->
                         
-                        <!-- BEGIN: Topbar Toggler -->
+                        <?php if ($metronic->navbarLeftFile): ?>
+                        <a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+                            <span></span>
+                        </a>
+                        <?php endif ?>
+
+                        <?php if ($metronic->navbarRightFile): ?>
                         <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
                             <i class="flaticon-more"></i>
                         </a>
-                        <!-- BEGIN: Topbar Toggler -->
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
             <!-- END: Brand -->
-            <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
-                <!-- BEGIN: Topbar -->
-                <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
-                    <div class="m-stack__item m-topbar__nav-wrapper">
-                        <ul class="m-topbar__nav m-nav m-nav--inline">
-                            <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
-                                <a href="#" class="m-nav__link m-dropdown__toggle">
-                                    <span class="m-topbar__userpic">
-                                        <img src="<?= $globalMedia->baseUrl ?>/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
-                                    </span>
-                                    <span class="m-topbar__username m--hide">Nick</span>
-                                </a>
-                                <div class="m-dropdown__wrapper">
-                                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                    <div class="m-dropdown__inner">
-                                        <div class="m-dropdown__header m--align-center" style="background: url(<?= $globalMedia->baseUrl ?>/img/misc/user_profile_bg.jpg); background-size: cover;">
-                                            <div class="m-card-user m-card-user--skin-dark">
-                                                <div class="m-card-user__pic">
-                                                    <img src="<?= $globalMedia->baseUrl ?>/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
-                                                </div>
-                                                <div class="m-card-user__details">
-                                                    <span class="m-card-user__name m--font-weight-500">Mark Andre</span>
-                                                    <a href="" class="m-card-user__email m--font-weight-300 m-link">mark.andre@gmail.com</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-dropdown__body">
-                                            <div class="m-dropdown__content">
-                                                <ul class="m-nav m-nav--skin-light">
-                                                    <li class="m-nav__section m--hide">
-                                                        <span class="m-nav__section-text">Section</span>
-                                                    </li>
-                                                    <li class="m-nav__item">
-                                                        <a href="?page=header/profile&demo=default" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-profile-1"></i>
-                                                            <span class="m-nav__link-title">
-                                                                <span class="m-nav__link-wrap">
-                                                                    <span class="m-nav__link-text">My Profile</span>
-                                                                    <span class="m-nav__link-badge"><span class="m-badge m-badge--success">2</span></span>
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="m-nav__item">
-                                                        <a href="?page=header/profile&demo=default" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-share"></i>
-                                                            <span class="m-nav__link-text">Activity</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="m-nav__item">
-                                                        <a href="?page=header/profile&demo=default" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                            <span class="m-nav__link-text">Messages</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="m-nav__separator m-nav__separator--fit"></li>
-                                                    <li class="m-nav__item">
-                                                        <a href="?page=header/profile&demo=default" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-info"></i>
-                                                            <span class="m-nav__link-text">FAQ</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="m-nav__item">
-                                                        <a href="?page=header/profile&demo=default" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                            <span class="m-nav__link-text">Support</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="m-nav__separator m-nav__separator--fit"></li>
-                                                    <li class="m-nav__item">
-                                                        <a href="?page=snippets/pages/user/login-1&demo=default" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
-                                                            Logout
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END: Topbar -->
-            </div>
+            <?= NavBar::widget([
+                    'leftNav' => $metronic->navbarLeftFile,
+                    'rightNav' => $metronic->navbarRightFile
+                ])
+            ?>
         </div>
     </div>
 </header>
@@ -192,42 +117,13 @@ $globalMedia = GlobalMediaAsset::register($this);
 <!-- end:: Body -->
                 
 <!-- begin::Footer -->
-<footer class="m-grid__item     m-footer ">
+<footer class="m-grid__item m-footer">
     <div class="m-container m-container--fluid m-container--full-height m-page__container">
         <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
             <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
                 <span class="m-footer__copyright">
-                    2017 &copy; Metronic theme by <a href="#" class="m-link">Keenthemes</a>
+                    <?= Yii::$app->params['metronic']['footer'] ?>
                 </span>
-            </div>
-            <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
-                <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
-                    <li class="m-nav__item">
-                        <a href="#" class="m-nav__link">
-                            <span class="m-nav__link-text">About</span>
-                        </a>
-                    </li>
-                    <li class="m-nav__item">
-                        <a href="#"  class="m-nav__link">
-                            <span class="m-nav__link-text">Privacy</span>
-                        </a>
-                    </li>
-                    <li class="m-nav__item">
-                        <a href="#" class="m-nav__link">
-                            <span class="m-nav__link-text">T&C</span>
-                        </a>
-                    </li>
-                    <li class="m-nav__item">
-                        <a href="#" class="m-nav__link">
-                            <span class="m-nav__link-text">Purchase</span>
-                        </a>
-                    </li>
-                    <li class="m-nav__item m-nav__item">
-                        <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="Support Center" data-placement="left">
-                            <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
