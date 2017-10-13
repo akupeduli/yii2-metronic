@@ -3,6 +3,7 @@ namespace akupeduli\metronic\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
+use akupeduli\metronic\Metronic;
 
 class SideBar extends Widget
 {
@@ -19,17 +20,28 @@ class SideBar extends Widget
             ]
         );
 
+        $metronic = Metronic::getComponent();
+        $defaultOptions = [
+            "id" => "m_ver_menu",
+            "class" => [
+                "m-aside-menu", "m-aside-menu--skin-dark", "m-aside-menu--submenu-skin-dark"
+            ],
+            "data-menu-vertical" => "true", 
+            "data-menu-scrollable" => "false",
+            "data-menu-dropdown-timeout" => 500
+        ];
+
+        if ($metronic->sidebarToggle === Metronic::SIDEBAR_TOGGLE_DROPDOWN) {
+            $defaultOptions['data-menu-dropdown'] = "true";
+            $defaultOptions['data-menu-scrollable'] = "true";
+            $defaultOptions['class'][] = "m-aside-menu--dropdown";
+        }
+
         $result[] = Html::beginTag("div", [
             "id" => "m_aside_left",
             "class" => "m-grid__item m-aside-left m-aside-left--skin-dark"
         ]);
-        $result[] = Html::beginTag("div", [
-            "id" => "m_ver_menu",
-            "class" => "m-aside-menu m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark",
-            "data-menu-vertical" => "true", 
-            "data-menu-scrollable" => "false",
-            "data-menu-dropdown-timeout" => 500
-        ]);
+        $result[] = Html::beginTag("div", $defaultOptions);
 
         $result[] = SideBarMenu::widget([
             'items' => require(\Yii::getAlias($this->itemFile))

@@ -39,11 +39,32 @@ class Layout
     private static function _bodyOptions($options)
     {
         Html::addCssClass($options, 'm-aside-left--offcanvas m-footer--push m-aside--offcanvas-default');
-        Html::addCssClass($options, 'm--skin- m-header--fixed m-header--fixed-mobile m-content--skin-light2');
-        Html::addCssClass($options, 'm-aside-left--enabled m-aside-left--skin-dark m-page--fluid');
+        Html::addCssClass($options, 'm--skin- m-content--skin-light2');
+        Html::addCssClass($options, 'm-aside-left--enabled m-aside-left--skin-dark');
 
         /** @var Metronic $metronic */
         $metronic = Metronic::getComponent();
+        if ($metronic->layoutOption === Metronic::LAYOUT_FLUID) {
+            Html::addCssClass($options, "m-page--fluid");
+        } else if ($metronic->layoutOption === Metronic::LAYOUT_BOXED) {
+            Html::addCssClass($options, "m-page--boxed");
+
+            if ($metronic->layoutBackground) {
+                Html::addCssStyle($options, "background-image", "url($metronic->layoutBackground)");
+            }
+        }
+
+        if ($metronic->headerOption === Metronic::HEADER_FIXED) {
+            Html::addCssClass($options, "m-header--fixed m-header--fixed-mobile");
+        }
+
+        if ($metronic->sidebarPosition === Metronic::SIDEBAR_POSITION_FIXED) {
+            Html::addCssClass($options, "m-aside-left--fixed");
+        }
+
+        if ($metronic->footerOption === Metronic::FOOTER_FIXED) {
+            Html::addCssClass($options, 'm-footer--fixed');
+        }
 
         return $options;
     }

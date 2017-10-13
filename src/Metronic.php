@@ -36,15 +36,12 @@ class Metronic extends Component
     const HEADER_FIXED   = 'fixed';
 
     /** Sidebar */
-    const SIDEBAR_DEFAULT = 'default';
-    const SIDEBAR_FIXED   = 'fixed';
+    const SIDEBAR_POSITION_DEFAULT = 'default';
+    const SIDEBAR_POSITION_FIXED   = 'fixed';
 
     /** Sidebar menu */
-    const SIDEBAR_MENU_ACCORDION = 'accordion';
-    const SIDEBAR_MENU_DROPDOWN  = 'dropdown';
-
-    const SIDEBAR_STYLE_DEFAULT = 'default';
-    const SIDEBAR_STYLE_LIGHT   = 'light';
+    const SIDEBAR_TOGGLE_DEFAULT   = 'accordion';
+    const SIDEBAR_TOGGLE_DROPDOWN  = 'dropdown';
 
     /** Footer */
     const FOOTER_DEFAULT = 'default';
@@ -65,15 +62,17 @@ class Metronic extends Component
 
     public $version = self::VERSION_1;
 
+    /** @var string background path asset and ONLY work for LAYOUT_BOXED
+    */
+    public $layoutBackground = "";
     public $layoutOption = self::LAYOUT_FLUID;
 
-    public $headerOption = self::HEADER_DEFAULT;
+    public $headerOption = self::HEADER_FIXED;
 
-    public $sidebarOption = self::SIDEBAR_DEFAULT;
+    public $sidebarPosition = self::SIDEBAR_POSITION_FIXED;
 
-    public $sidebarMenu = self::SIDEBAR_MENU_ACCORDION;
-    
-    public $sidebarStyle = self::SIDEBAR_STYLE_DEFAULT;
+    /* TODO: still in development */
+    public $sidebarToggle = self::SIDEBAR_TOGGLE_DEFAULT;
 
     public $footerOption = self::FOOTER_DEFAULT;
 
