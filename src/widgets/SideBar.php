@@ -14,6 +14,7 @@ class SideBar extends Widget
         $result[] = Html::button(
             Html::tag("i", "", ['class' => 'la la-close']),
             [
+                "id" => "m_aside_left_close_btn",
                 'class' => 'm-aside-left-close m-aside-left-close--skin-dark'
             ]
         );
