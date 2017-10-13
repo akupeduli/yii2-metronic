@@ -80,7 +80,7 @@ class Metronic extends Component
     public $loginRoute = 'site/login';
     public $navbarLeftFile  = false;
     public $navbarRightFile = false;
-    public $sidebarFile = false;
+    public $sidebarMenuList = false;
 
     /**
      * @return null|Metronic|object

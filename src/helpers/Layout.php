@@ -60,7 +60,7 @@ class Layout
             Html::addCssClass($options, 'page-sidebar-closed');
         }
 
-        if ($metronic->sidebarFile === false) {
+        if ($metronic->sidebarMenuList === false) {
             Html::addCssClass($options, 'page-full-width');
         }
 
