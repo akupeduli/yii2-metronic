@@ -46,6 +46,9 @@ $this->beginPage();
 
     ?>>
     <?php $this->beginBody(); ?>
+    <div class="m-page-loader">
+        <div class="m-spinner m-spinner--brand"></div>
+    </div>
     <div class="m-grid m-grid--hor m-grid--root m-page">
     <?php echo $content; ?>
     </div>
