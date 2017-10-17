@@ -2,8 +2,9 @@
 
 namespace akupeduli\metronic\assets\core;
 
-use akupeduli\metronic\Metronic;
+use yii\web\View;
 use yii\web\AssetBundle;
+use akupeduli\metronic\Metronic;
 
 class CoreAsset extends AssetBundle
 {
@@ -13,6 +14,10 @@ class CoreAsset extends AssetBundle
     
     public $js = [
         'base/vendors.bundle.js'
+    ];
+
+    public $jsOptions = [
+        'position' => View::POS_HEAD
     ];
     
     public function __construct(array $config = [])
