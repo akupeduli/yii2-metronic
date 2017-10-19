@@ -3,6 +3,7 @@ namespace akupeduli\metronic\actions;
 
 use Yii;
 use yii\base\Exception;
+use yii\web\HttpException;
 use yii\base\UserException;
 use yii\web\ErrorAction as Base;
 
