@@ -76,7 +76,6 @@ class Metronic extends Component
 
     public $footerOption = self::FOOTER_DEFAULT;
 
-    public $loginRoute = 'site/login';
     public $navbarLeftFile  = null;
     public $navbarRightFile = null;
     public $sidebarMenuList = null;
