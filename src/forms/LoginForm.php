@@ -83,7 +83,7 @@ class LoginForm extends Model
 
     public function validatePassword($attribute, $params)
     {
-        if ($this->hasErrors()) {
+        if (!$this->hasErrors()) {
             if (!method_exists($this->user, 'validatePassword')) {
                 throw new InvalidConfigException("User must have method validatePassword");
             }
