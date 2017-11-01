@@ -107,7 +107,7 @@ class LoginForm extends Model
     {
         if ($this->validate()) {
             $rememberMeDuration = ArrayHelper::getValue(\Yii::$app->params, 'user.rememberMeDuration', 0);
-            return \Yii::$app->user->login($this->user, $thi->rememberMe ? $rememberMeDuration : 0);
+            return \Yii::$app->user->login($this->user, $this->rememberMe ? $rememberMeDuration : 0);
         }
 
         return false;
